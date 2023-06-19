@@ -37,4 +37,23 @@
 			`rentPrice` < #{rentPrice}
 			]]>	
  	</select>
+ 	<select id="selectRealEstateByAreaPrice" resultType="com.quiz.lesson03.domain.RealEstate">
+ 		SELECT
+ 			SELECT
+ 			`id`
+			,`realtorId`
+			,`address`
+			,`area`
+			,`type`
+			,`price`
+			,`rentPrice`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`real_estate`  
+		WHERE
+		<![CDATA[
+		#{area} <= `area` && #{price} >= `price`
+		]]>	   
+ 	</select>
  </mapper>
