@@ -22,19 +22,33 @@
 		)
 	</insert>
 
-	<select id="selectLatestSeller"
-		resultType="com.quiz.lesson04.domain.Seller">
+	<select id="selectLatestSeller"	resultType="com.quiz.lesson04.domain.Seller">
 		SELECT
-			`nickname`
+			`id`
+			,`nickname`
 			,`profileImageUrl`
 			,`temperature`
 			,`createdAt`
 			,`updatedAt`
 		FROM 
 			`seller`
+			
 		ORDER BY
 		 		`id` DESC
 		LIMIT 1				
 	</select>
-
+	<select id="selectSellerById" parameterType="int" resultType="com.quiz.lesson04.domain.Seller">
+		SELECT 
+			`id`
+			,`nickname`
+			,`profileImageUrl`
+			,`temperature`
+			,`createdAt`
+			,`updatedAt`
+		FROM 
+			`seller`
+		WHERE
+			`id` = #{id}	
+	
+	</select>
 </mapper>

@@ -58,5 +58,14 @@ public class Seller {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
+		
+//	@Override   기존 투스트링 메소드 변경해서 나타낼수도 있음 
+//	public String toString() {
+//		return "이름:" + this.nickname;
+//	}
+	
+	
+	
+	
+	
 }

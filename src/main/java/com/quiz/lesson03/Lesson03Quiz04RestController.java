@@ -15,8 +15,7 @@ public class Lesson03Quiz04RestController {
 	
 //	http://localhost:8080/lesson03/quiz04/1?id=21
 	@RequestMapping("/lesson03/quiz04")
-	public String quiz04(
-			@RequestParam("id") int id) {
+	public String quiz04(int id) {
 		realEstateBO.deleteRealEstateById(id);
 		return "삭제 완료";
 	}
