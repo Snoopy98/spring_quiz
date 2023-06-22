@@ -2,7 +2,7 @@ package com.quiz.lesson04.domain;
 
 import java.util.Date;
 
-public class Relator {
+public class Realtor {
 	private int id;
 	private String office;
 	private String phoneNumber;

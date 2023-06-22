@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="com.quiz.lesson04.dao.RelatorMapper">
- 	<insert id="insertRelator" parameterType="com.quiz.lesson04.domain.Relator"
+ <mapper namespace="com.quiz.lesson04.dao.RealtorMapper">
+ 	<insert id="insertRealtor" parameterType="com.quiz.lesson04.domain.Realtor"
  	useGeneratedKeys="true" keyProperty="id">
- 		INSERT INTO `relator`
+ 		INSERT INTO `realtor`
  				(
 		 		`office`
 				,`phoneNumber`
@@ -26,7 +26,7 @@
 				
  	</insert>
  	
- 	<select id="selectRelator" parameterType="com.quiz.lesson04.domain.Relator">
+ 	<select id="selectRealtorById" parameterType="com.quiz.lesson04.domain.Realtor">
  	SELECT
  				`id`
  				,`office`
@@ -35,7 +35,7 @@
 				,`grade`
 				,`createdAt`
 				,`updatedAt`
-	FROM `relator`
+	FROM `realtor`
 	WHERE 
 	 	 `id` = #{id}					
 	 	

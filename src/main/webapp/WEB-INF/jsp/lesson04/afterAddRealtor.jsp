@@ -13,7 +13,7 @@
 <body>
 	<div class="container">
 	<h1>공인중개사 정보</h1>
-		<table>
+		<table class="table">
 			<tr>
 				<th>ID</th>
 				<td>${result.id}</td>
@@ -33,6 +33,14 @@
 			<tr>
 				<th>등급</th>
 				<td>${result.grade}</td>
+			</tr>
+			<tr>
+				<th>생성일</th>
+				<td>${result.createdAt}</td>
+			</tr>
+			<tr>
+				<th>수정일</th>
+				<td>${result.updatedAt}</td>
 			</tr>
 		</table>
 	</div>

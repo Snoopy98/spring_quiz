@@ -11,12 +11,6 @@
 
 </head>
 <body>
-id
-office
-phoneNumber
-address
-grade
-createdAt
 <div class="container">
 	<h1>공인중개사 추가</h1>
 	<form method="post" action="/lesson04/quiz02/add_realtor">
