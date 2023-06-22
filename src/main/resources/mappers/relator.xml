@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.quiz.lesson04.dao.RelatorMapper">
+ 	<insert id="insertRelator" parameterType="com.quiz.lesson04.domain.Relator"
+ 	useGeneratedKeys="true" keyProperty="id">
+ 		INSERT INTO `relator`
+ 				(
+		 		`office`
+				,`phoneNumber`
+				,`address`
+				,`grade`
+				,`createdAt`
+				,`updatedAt`
+				)
+		VALUES
+		(
+				#{office}
+				,#{phoneNumber}		
+				,#{address}		
+				,#{grade}		
+				,NOW()		
+				,NOW()		
+		)
+				
+ 	</insert>
+ 	
+ 	<select id="selectRelator" parameterType="com.quiz.lesson04.domain.Relator">
+ 	SELECT
+ 				`id`
+ 				,`office`
+				,`phoneNumber`
+				,`address`
+				,`grade`
+				,`createdAt`
+				,`updatedAt`
+	FROM `relator`
+	WHERE 
+	 	 `id` = #{id}					
+	 	
+ 	</select>
+ </mapper>
