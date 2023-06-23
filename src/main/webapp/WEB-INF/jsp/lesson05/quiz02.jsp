@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>HOT 5</h1>
-	<table class="table">
+	<table class="table text-center">
 		<thead>
 			<tr>
 				<th>순위</th>
@@ -21,10 +21,10 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${musicRanking}" var="music" varStatus="status">
+		<c:forEach items="${musicRanking}" var="musicRank" varStatus="status">
 			<tr>
 				<td>${status.count}</td>
-				<td>${music}</td>
+				<td>${musicRank}</td>
 			</tr>
 		</c:forEach>	
 		</tbody>
