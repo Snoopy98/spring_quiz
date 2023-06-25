@@ -13,6 +13,7 @@
 
 </head>
 <body>
+	<h1>회원 정보 리스트</h1>
 	<table class="table text-center">
 		<thead>
 			<tr>
@@ -25,14 +26,36 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="members" var="member" varStatus="status">
+		<c:forEach items="${members}" var="member" varStatus="status">
 			<tr>
 				<td>${status.count}</td>
 				<td>${member.name}</td>
-				<td>${member.phoneNumber}</td>
-				<td>${member.Nationality }</td>
-				<td>${member.email}</td>
-				<td>${member.introduce}</td>
+				
+				<td>
+					<c:choose>
+					<c:when test="${fn:startsWith(member.phoneNumber,'010')}">
+					${member.phoneNumber}
+					</c:when> 
+					<c:otherwise>유효하지 않은 전화번호</c:otherwise>
+				  </c:choose>
+				</td>
+				
+				<td>
+				${fn:replace(member.nationality,"삼국시대","삼국 -") }
+				</td>
+				
+				<td>
+			<b>${fn:split(member.email,'@')[0]}</b>@${fn:split(member.email,'@')[1]}	
+				</td>
+				
+				<td>
+				<c:choose>
+					<c:when test="${fn:length(member.introduce) >= 15}">
+					${fn:substring(member.introduce,0,15)} ...
+					</c:when>
+					<c:otherwise>${member.introduce}</c:otherwise>
+				</c:choose> 
+				</td>
 			</tr>
 		</c:forEach>	
 		</tbody>
