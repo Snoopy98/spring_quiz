@@ -15,4 +15,10 @@ private WeatherHistoryMapper weatherHistoryMapper;
 	public List<WeatherHistory> getWheatherHistory(){
 		return weatherHistoryMapper.selectWheatherHistory();
 	}
+	
+	 
+	public void addWeatherHistory(String date,String weather,String microDust,double temperature,
+			double precipitation, double windSpeed) {
+		weatherHistoryMapper.insertWeatherHistory(date, weather, microDust, temperature, precipitation, windSpeed);
+	}
 }
