@@ -21,7 +21,7 @@ public class Lesson04Quiz02Controller {
 //	http://localhost:8080/lesson04/quiz02/add_realtor_view
 	 @GetMapping("/add_realtor_view")
 	 public String addRealtorView() {
-		 return "lesson04/addReal tor";
+		 return "lesson04/addRealtor";
 	 }
 	 
 	 //	결과 페이지 			
