@@ -35,7 +35,8 @@
 		 	<tbody>
 		 	<c:forEach items="${weather}" var="weatherHistory">
 		 		<tr>
-		 			<td>${weatherHistory.date}</td>
+		 			<td><fmt:formatDate value="${weatherHistory.date }" pattern="yyyy월 M월 d일" /></td>
+		 			
 		 			<td>
 		 			<c:choose>
 		 			<c:when test="${fn:contains(weatherHistory.weather,'비')}">

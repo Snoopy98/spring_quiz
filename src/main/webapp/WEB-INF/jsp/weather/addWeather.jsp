@@ -5,11 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>날씨 입력</title>
+<!--  부트스트랩 , 제이쿼리 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- 데이트 피커 -->
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+ <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<!-- 내 스타일 시트 -->
 <link href="/css/weather/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -36,7 +39,7 @@
 			<section class="weather-history col-10 mt-3 ml-5">
 				<h3>날씨 입력</h3>
 				
-				<form method="post" action="/afterWeather">
+				<form method="post" action="/add_Weather">
 					<div class="d-flex justify-content-between mt-5">
 						<div class="d-flex align-items-center">
 							<div class="input-label">날짜</div>
@@ -115,10 +118,13 @@
 	</div>
 	<script>
 	$(document).ready(function() {
-		$.datepicker.setDefaults({
-            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'] // 요일을 한글로 변경
-            , dateFormat: 'yy-mm-dd'
-        });
+		
+		$('#date').datepicker({
+			dateFormat:"yy-mm-dd" // 날짜 포맷
+			,changeYear:true
+			,changeMonth:true
+		});
+      
 	
 	});
 	</script>

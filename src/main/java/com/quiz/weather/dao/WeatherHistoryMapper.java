@@ -1,5 +1,6 @@
 package com.quiz.weather.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -10,13 +11,13 @@ import com.quiz.weather.domain.WeatherHistory;
 public interface WeatherHistoryMapper {
 
 	
-	public List<WeatherHistory> selectWheatherHistory();
+	public List<WeatherHistory> selectWheatherHistoryList();
 	
 	public void insertWeatherHistory(
-			@Param("date") String date,
+			@Param("date") Date date,
 			@Param("weather") String weather,
 			@Param("microDust") String microDust,
-			@Param("temperature") double temperature,
+			@Param("temperatures") double temperatures,
 			@Param("precipitation") double precipitation,
 			@Param("windSpeed") double windSpeed);
 }
