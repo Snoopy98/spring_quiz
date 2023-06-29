@@ -13,12 +13,12 @@ public class SiteBO {
 	@Autowired
 	private SiteMapper siteMapper;
 
-	public List<Site> getSiteList(Site site){
+	public List<Site> getSiteList(){
 		
-		return siteMapper.selectSiteList(site);
+		return siteMapper.selectSiteList();
 	}
 	
-	public void addSite(String domain,String url) {
-		siteMapper.insertSite(domain, url);
+	public void addSite(String name,String url) {
+		siteMapper.insertSite(name, url);
 	}
 }

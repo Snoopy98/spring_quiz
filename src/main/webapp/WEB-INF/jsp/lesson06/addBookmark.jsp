@@ -17,57 +17,72 @@
 	
 	
 	<div class="my-2">제목</div>
-	<input type="text" id="domain" class="form-control">
+	<input type="text" id="name" class="form-control">
 	<div class="my-2">주소</div>
-	<input type="text" id="url" class="form-control">
-	<input type="button" class="btn btn-success w-100 my-3" value="추가" id="addBtn">
-	
+	<div class="d-flex">
+			<input type="text" id="url" class="form-control col-9">
+			<button type="button" id="duplicationBtn" class="btn btn-info mx-5">중복확인</button>
 	</div>
-	
+	<small id="duplicationTextArea"></small>		
+	<input type="button" class="btn btn-success w-100 mt-5" value="추가" id="addBtn">
+	</div>
 	<script>
 	$(document).ready(function(){
+		let url = $('#url').val().trim();
+		// 중복확인 버튼 클릭 이벤트
+		$('#duplicationBtn').on('click', function(){
+			//alert("클릭");
+			// 
+			$('#duplicationTextArea').empty();
+			//validation
+			if(url == ""){
+				$('#duplicationTextArea').append('<span class="text-danger">주소를 입력해주세요.</span>');
+				return;
+			}	
+		});
+		
+		// 추가 버튼 클릭 이벤트
 		$('#addBtn').on('click',function(){
 			//alert("클릭");
-			//validation
-			let domain = $('#domain').val().trim();
-			let url = $('#url').val().trim();
 			
-			if(domain == ""){
-				alert("사이트명을 입력해주세요");
+			let name = $('#name').val().trim();
+			
+			//validation
+			if(name == ""){
+				alert("제목을 입력해주세요")
 				return;
 			}
 			if(url == ""){
-				alert("사이트 주소를 입력해주세요");
+				alert("주소를 입력해주세요")
 				return;
-			} 
-			
-			if(url.startsWith('http') == false ){
-			alert("주소는 http 나 https 로 시작해주세요");
-			return;
 			}
-		});
+			if(url.startsWith("http") == false && url.startsWith("https") == false) {
+				alert("주소는 http나 https 로 시작해야합니다.")
+				return ;
+			}
 		
-		$ajax.({
-			//request
+		
+		$.ajax({
+			// request
 			type:"post"
 			,url:"/lesson06/quiz01/add_site" // 절대로 view 가 붙지 않는다. 
-			,data:{"domain":domain,"url":url}
+			,data:{"name":name,"url":url}
 			
 			//response
-			,success:function(data){
-				if(data == "성공"){
-					location.href = "/lesson06/quiz01/site_view"
+			,success:function(data){ // String, JSON 자바 스크립트의 객체 변환
+				/* alert(data.code);
+				alert(data.result); */
+				if(data.result == "성공"){
+					location.href = "/lesson06/quiz01/site_view"; // Get method
 				}
 			}
 			,error:function(request, status, error){
-				alert(request);
-				alert(status);
-				alert(error);
-			
+				alert("즐겨찾기이 실패하셧습니다.")
+			}
 		});
-		
-	})
-	
+	});
+
+	});
 	</script>
 </body>
 </html>

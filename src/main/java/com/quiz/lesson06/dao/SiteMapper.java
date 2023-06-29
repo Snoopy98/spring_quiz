@@ -10,9 +10,9 @@ import com.quiz.lesson06.domain.Site;
 @Repository
 public interface SiteMapper {
 
-	public List<Site> selectSiteList(Site site);
+	public List<Site> selectSiteList();
 	
 	public void insertSite(
-			@Param("name")String domain,
+			@Param("name")String name,
 			@Param("url") String url);
 }
