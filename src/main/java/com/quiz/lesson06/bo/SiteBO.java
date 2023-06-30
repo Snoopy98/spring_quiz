@@ -21,4 +21,12 @@ public class SiteBO {
 	public void addSite(String name,String url) {
 		siteMapper.insertSite(name, url);
 	}
+	
+	public Site getSiteByUrl(String url) {
+		return siteMapper.selectSiteByUrl(url);
+	}
+	
+	public int deleteSiteById(int id) {
+		return siteMapper.deleteSiteById(id);
+	}
 }

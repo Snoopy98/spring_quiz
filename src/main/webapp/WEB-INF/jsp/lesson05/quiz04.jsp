@@ -42,6 +42,7 @@
 				<th>가격</th>
 				<th>사용날짜</th>
 				<th>할부</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -57,6 +58,7 @@
 				
 				</td>
 				<td>${card.installment}</td>
+				<td></td>
 			</tr>
 		</c:forEach>
 		</tbody>
