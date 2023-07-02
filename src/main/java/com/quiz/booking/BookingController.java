@@ -15,6 +15,8 @@ import com.quiz.booking.domain.Booking;
 public class BookingController {
 @Autowired
 private BookingBO bookingBO;
+
+	// 예약 목록 화면
 	@GetMapping("/site_view")
 	public String siteView(Model model) {
 		
@@ -23,4 +25,5 @@ private BookingBO bookingBO;
 		return "booking/siteView";
 	}
 	
+
 }
