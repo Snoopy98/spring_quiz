@@ -1,5 +1,7 @@
 package com.quiz.lesson07.bo;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,8 @@ public class CompanyBO {
 				); 
 		return company;
 	}
-	
+	// input : id , scale , headcount   
+	// output : CompanyEntity
 	public CompanyEntity updateCompanyById(int id ,String scale, String headcount) {
 		// select
 		CompanyEntity company = companyRepository.findById(id).orElse(null);
@@ -32,9 +35,14 @@ public class CompanyBO {
 			company = company.toBuilder()
 					.scale(scale)
 					.headcount(headcount)
-					.build();
+					.build(); 
 			company = companyRepository.save(company);
 		}
 		return company;
+	}
+	
+	public void deleteCompanyById(int id) {
+		Optional<CompanyEntity> companyOptional = companyRepository.findById(id);
+		companyOptional.ifPresent(c -> companyRepository.delete(c));
 	}
 }

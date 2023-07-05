@@ -7,5 +7,6 @@ import com.quiz.lesson07.entity.CompanyEntity;
 
 @Repository
 public interface CompanyRepository extends JpaRepository<CompanyEntity,Integer>{
-
+ // save()
+	// findById()
 }
