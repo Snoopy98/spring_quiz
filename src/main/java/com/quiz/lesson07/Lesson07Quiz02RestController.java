@@ -1,6 +1,7 @@
 package com.quiz.lesson07;
 
 import java.util.List;
+import java.util.concurrent.RecursiveAction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +27,18 @@ public class Lesson07Quiz02RestController {
 //		return recruitRepository.findByCompanyId(1);
 		
 		//3
-		return recruitRepository.findByPositionAndType("웹 back-end 개발자", "정규직");
+//		return recruitRepository.findByPositionAndType("웹 back-end 개발자", "정규직");
+		
+		//4
+		return recruitRepository.findByTypeAndSalaryGreaterThanEqual("정규직",9000);
 		
 		// 5
-	
+		//return recruitRepository.findTop3ByOrderBySalaryDesc();
+		
+		//6
+//		return recruitRepository.findByRegionAndSalaryBetween("성남시 분당구" , 7000,8500);
+		
+		//7
+//		return recruitRepository.findByType("정규직");
 	}
 }
