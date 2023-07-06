@@ -30,15 +30,16 @@ public class Lesson07Quiz02RestController {
 //		return recruitRepository.findByPositionAndType("웹 back-end 개발자", "정규직");
 		
 		//4
-		return recruitRepository.findByTypeAndSalaryGreaterThanEqual("정규직",9000);
+//		return recruitRepository.findByTypeOrSalaryGreaterThanEqual("정규직",9000);
 		
 		// 5
-		//return recruitRepository.findTop3ByOrderBySalaryDesc();
+//		return recruitRepository.findTop3ByTypeOrderBySalaryDesc("계약직");
 		
 		//6
 //		return recruitRepository.findByRegionAndSalaryBetween("성남시 분당구" , 7000,8500);
 		
 		//7
-//		return recruitRepository.findByType("정규직");
+		return recruitRepository
+				.findByDeadlineAfterAndSalaryAndTypeOrderBySalaryDesc("2026-04-10",8100,"정규직");
 	}
 }

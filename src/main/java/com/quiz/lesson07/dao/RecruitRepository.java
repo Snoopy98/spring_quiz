@@ -15,15 +15,14 @@ public interface RecruitRepository extends JpaRepository<RecruitEntity, Integer>
 	public List<RecruitEntity> findById(int id);
 	public List<RecruitEntity> findByCompanyId(int id);
 	public List<RecruitEntity> findByPositionAndType(String position, String type);
-	public List<RecruitEntity> findTop3ByOrderBySalaryDesc();
+	public List<RecruitEntity> findByTypeOrSalaryGreaterThanEqual(String type, int salary);
+	public List<RecruitEntity> findTop3ByTypeOrderBySalaryDesc(String type);
 	public List<RecruitEntity> findByRegionAndSalaryBetween(String region,int salary1,int salary2);
-	
-	@Query(value = "select * from recruit where type = :type and salary >= 8100 and deadline > 2026-04-10 order by salary desc" ,nativeQuery = true)
-	public List<RecruitEntity> findByType(@Param("type") String type);
 	// native query => DB 쿼리문으로 직접 수행
-//		//@Query(value = "select * from new_student where dreamJob=:dreamJob", nativeQuery = true)
-//		@Query(value = "select st from new_student st where st.dreamJob = :dreamJob")
-//		public List<StudentEntity> findByDreamJob(@Param("dreamJob") String dreamJob);
+	@Query(value = "select * from recruit where type = :type and salary >= :salary and deadline > :deadline order by salary desc" ,nativeQuery = true)
+	public List<RecruitEntity> findByDeadlineAfterAndSalaryAndTypeOrderBySalaryDesc(
+			@Param("deadline") String deadline,
+			@Param("salary") int salary,
+			@Param("type") String type);
 
-	public List<RecruitEntity> findByTypeAndSalaryGreaterThanEqual(String type, int salary);
 }
